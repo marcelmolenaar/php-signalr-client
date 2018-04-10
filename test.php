@@ -4,10 +4,11 @@ require_once("vendor/autoload.php");
 
 use Hammershark\SignalR\Client;
 
-$client = new Client("wss://socket.bittrex.com/signalr", ["corehub"]);
+$client = new Client("wss://beta.bittrex.com/signalr", ["c2"]);
 
-$client->on("corehub", "updateSummaryState", function($data) {
-    print_r($data);
+
+$client->on("c2", "SubscribeToSummaryDeltas", function($data) {
+    echo 'TEST';
 });
 
 $client->run();
